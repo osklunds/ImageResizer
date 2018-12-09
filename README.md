@@ -3,6 +3,8 @@
 
 A Java tool for synchronizing and compressing images between two folders.
 
+**Note** This program is still in progress.
+
 ## Background and use case
 
 TODO
