@@ -3,24 +3,28 @@
 
 This is a Java tool for mapping/synchronizing a folder hierarchy into a new folder hierarchy with the following properties:
 - Only images and videos are kept
-- The exif date of images are prepended to their filename
+- The exif date/time of images are prepended to their filename
 - The images gets down-scaled and compressed
+- Only when something has changed is it transformed
 
+The image displays an example run
 
+![](misc/Example.png)
+
+The purpose of having the date/time prepended is to be able to sort images, from multiple cameras, by the time they were taken, without needing a special viewer software that can read exif tags. Windows Explorer or Finder is enough!
+
+The purpose of compressing the images is so that it's faster to view and browse them over a network connection. On the internet as well as LANs.
+
+This program is used for a real purpose by me. Once a week, a Raspbery Pi runs the program to transform our collection of family photos to the new form. We then view the transformed, not the original, photos on the TV. With the time in the filename, no advanced viewer software is needed to display the photos from different camers in the correct chronological order.
 
 **Note** This program is still in progress.
 
 ## Overview
 
-- **Use case** Describes the real-life setting for which I use this program.
 - **How to use** How to compile and run the program.
 - **Source code overview** A short overview of the classes and important methods.
 - **Licenses and attribution** Licenses and attribution to third party libraries used in this project.
 - **The "name" ImageResizer** About the name of the project.
-
-## Use case
-
-TODO
 
 ## How to use
 
@@ -45,6 +49,8 @@ The program is invoked as `java -jar TheProgram.jar src dst m1 m2 q` where
 - `m1` is `1` if create/delete file messsages should be printed, otherwise `0`.
 - `m2` is `1` if the folders entered and exited should be printed, otherwise is `0`.
 - `q` is `M` (for mobile) or `T` (for TV).
+  - In mobile, the images are capped at 1024x1024 and are compressed hard.
+  - In TV, the images are capped at 1920x1080 and are compressed a little less hard.
 
 For more details about the arguments, check the section [Use case](#Use-case).
 
