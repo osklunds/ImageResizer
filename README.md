@@ -4,7 +4,7 @@
 This is a Java tool for mapping/synchronizing a folder hierarchy into a new folder hierarchy with the following properties:
 - Only images and videos are kept
 - The exif date/time of images are prepended to their filename
-- The images gets down-scaled and compressed
+- The images get down-scaled and compressed
 - Only when something has changed is it transformed
 
 The image displays an example run
@@ -36,9 +36,11 @@ To compile the program, you need to have `ant` installed.
 
 - `ant clean` for cleaning the build directory.
 - `ant compile` for compiling.
-- `ant jar` for compiling and packaing into a `.jar` file.
+- `ant jar` for compiling and packaging into a `.jar` file.
 - `ant run ...` for running. See more about the needed arguments in the next section.
 - `ant` for all the above.
+
+The final program will be in the `build/` directory and have the name `TheProgram.jar`.
 
 ### Run
 
@@ -49,10 +51,8 @@ The program is invoked as `java -jar TheProgram.jar src dst m1 m2 q` where
 - `m1` is `1` if create/delete file messsages should be printed, otherwise `0`.
 - `m2` is `1` if the folders entered and exited should be printed, otherwise is `0`.
 - `q` is `M` (for mobile) or `T` (for TV).
-  - In mobile, the images are capped at 1024x1024 and are compressed hard.
-  - In TV, the images are capped at 1920x1080 and are compressed a little less hard.
-
-For more details about the arguments, check the section [Use case](#Use-case).
+  - In mobile, the images are capped at 1024x1024 and are compressed hard. Videos are not kept.
+  - In TV, the images are capped at 1920x1080 and are compressed a little less hard. Videos are kept.
 
 The `.jar` file can be moved to any folder.
 
