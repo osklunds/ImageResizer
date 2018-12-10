@@ -24,11 +24,17 @@ TODO
 
 ## How to use
 
+Make sure you are in the root directory of the project.
+
 ### Compile
 
-To compile the program, you need `ant` to be installed.
+To compile the program, you need to have `ant` installed.
 
-TODO
+- `ant clean` for cleaning the build directory.
+- `ant compile` for compiling.
+- `ant jar` for compiling and packaing into a `.jar` file.
+- `ant run ...` for running. See more about the needed arguments in the next section.
+- `ant` for all the above.
 
 ### Run
 
@@ -40,7 +46,9 @@ The program is invoked as `java -jar TheProgram.jar src dst m1 m2 q` where
 - `m2` is `1` if the folders entered and exited should be printed, otherwise is `0`.
 - `q` is `M` (for mobile) or `T` (for TV).
 
-For more info, check the section [Use case](#Use-case).
+For more details about the arguments, check the section [Use case](#Use-case).
+
+The `.jar` file can be moved to any folder.
 
 ## Source code overview
 
