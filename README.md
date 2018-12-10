@@ -5,13 +5,19 @@ A Java tool for synchronizing and compressing images between two folders.
 
 **Note** This program is still in progress.
 
-## Background and use case
+## Overview
+
+- **Use case** Describes the real-life setting for which I use this program.
+- **How to use** How to compile and run the program.
+- **Source code overview** A short overview of the classes and important methods.
+- **Licenses and attribution** Licenses and attribution to third party libraries used in this project.
+- **The "name" ImageResizer** About the name of the project.
+
+## Use case
 
 TODO
 
 ## How to use
-
-TODO
 
 ### Compile
 
@@ -39,7 +45,11 @@ The program is invoked as `java -jar TheProgram.jar src dst m1 m2 q` where
 - `m2` is `1` if the folders entered and exited should be printed, otherwise is `0`.
 - `q` is `M` (for mobile) or `T` (for TV).
 
-For more info, check the section [Background and use case](#Background-and-use-case).
+For more info, check the section [Use case](#Use-case).
+
+## Source code overview
+
+TODO
 
 ## Licenses and attribution
 
