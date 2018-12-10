@@ -1,0 +1,32 @@
+<project>
+
+    <property name="lib.dir"     value="lib"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build"/>
+        <javac srcdir="src" destdir="build" classpathref="classpath"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build"/>
+        <jar destfile="TheProgram.jar" basedir="build">
+            <manifest>
+                <attribute name="Main-Class" value="Iterator"/>
+            </manifest>
+            <zipgroupfileset dir="lib" includes="commons-io-2.6/commons-io-2.6.jar metadata-extractor-2.9.1/*.jar thumbnailator/*.jar"/>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/TheProgram.jar" fork="true"/>
+    </target>
+
+</project>

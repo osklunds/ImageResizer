@@ -1,7 +1,12 @@
 
 # ImageResizer
 
-A Java tool for synchronizing and compressing images between two folders.
+This is a Java tool for mapping/synchronizing a folder hierarchy into a new folder hierarchy with the following properties:
+- Only images and videos are kept
+- The exif date of images are prepended to their filename
+- The images gets down-scaled and compressed
+
+
 
 **Note** This program is still in progress.
 
@@ -21,19 +26,9 @@ TODO
 
 ### Compile
 
-Make sure you are in the root directory of the repository. First run
+To compile the program, you need `ant` to be installed.
 
-`javac src/*.java -cp lib/thumbnailator/*:lib/commons-io-2.6/*:lib/metadata-extractor-2.9.1/*:. -d build/`
-
-and then
-
-`jar -cvfm build/TheProgram.jar src/manifest.mf -C build/ .`
-
-and optionally
-
-`rm build/*.class`
-
-since the `.class` files are not needed anymore. The program file will be `build/TheProgram.jar`.
+TODO
 
 ### Run
 
