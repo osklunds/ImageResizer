@@ -15,7 +15,19 @@ TODO
 
 ### Compile
 
-TODO
+Make sure you are in the root directory of the repository. First run
+
+`javac src/*.java -cp lib/thumbnailator/*:lib/commons-io-2.6/*:lib/metadata-extractor-2.9.1/*:. -d build/`
+
+and then
+
+`jar -cvfm build/TheProgram.jar src/manifest.mf -C build/ .`
+
+and optionally
+
+`rm build/*.class`
+
+since the `.class` files are not needed anymore. The program file will be `build/TheProgram.jar`.
 
 ### Run
 
