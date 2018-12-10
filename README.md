@@ -31,7 +31,15 @@ since the `.class` files are not needed anymore. The program file will be `build
 
 ### Run
 
-TODO
+The program is invoked as `java -jar TheProgram.jar src dst m1 m2 q` where
+
+- `src` is the path to the source folder of images.
+- `dst` is the path to the destination folder, where compressed images will be.
+- `m1` is `1` if create/delete file messsages should be printed, otherwise `0`.
+- `m2` is `1` if the folders entered and exited should be printed, otherwise is `0`.
+- `q` is `M` (for mobile) or `T` (for TV).
+
+For more info, check the section [Background and use case](#Background-and-use-case).
 
 ## Licenses and attribution
 
