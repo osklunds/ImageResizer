@@ -17,6 +17,9 @@ import com.drew.imaging.jpeg.JpegSegmentMetadataReader;
 import com.drew.metadata.exif.*;
 import com.drew.metadata.iptc.IptcReader;
 
+/**
+ * The main class. It iterates recursively through the folder hierarchy.
+ */
 public class Iterator
 {
   public static void main(String[] args)
@@ -73,17 +76,18 @@ public class Iterator
     catch (Exception e)
     {
       System.out.println("Argument error");
+      System.exit(0);
     }
     
-  
-    Iterator hej = new Iterator();
+    // The iterator object that will be used
+    Iterator iterator = new Iterator();
                                 
-    hej.printCreateDelete = cdMess;
-    hej.printEntryExit = eeMess;
-    hej.mode = mode;
+    iterator.printCreateDelete = cdMess;
+    iterator.printEntryExit = eeMess;
+    iterator.mode = mode;
     
     long t0 = System.nanoTime();
-    hej.compute(new File(src),new File(dst));
+    iterator.compute(new File(src),new File(dst));
     long t1 = System.nanoTime();
     
     System.out.println("Time: " + ((t1 - t0) / 1000000000) + " seconds");
@@ -103,7 +107,7 @@ public class Iterator
   /**
    * Mobile or TV mode. True means Mobile, False mean TV.
    * Mobile: only images. Resolution 1024x1024. 0.3x compression.
-   * TV: images and movies. Resolution 1920x1080. 0.5x compression.
+   * TV: images and videos. Resolution 1920x1080. 0.8x compression.
    */
   public static boolean mode = true;
   
@@ -170,6 +174,7 @@ public class Iterator
     // 4. Iterate over all items in source
     for (Item srcItem : src)
     {
+      // An folder was encountered in the source
       if (srcItem.file.isDirectory())
       {
         File dstFile = new File(dstFolder, srcItem.name);
@@ -179,7 +184,8 @@ public class Iterator
           printCreateFolder(dstFolder, srcItem.name);
           dstFile.mkdir();
         }
-      
+
+        // Continue recursively
         compute(srcItem.file, dstFile);
       }
       
@@ -238,6 +244,7 @@ public class Iterator
   
   /**
    * Prints info that folder was deleted, but only if static variable says so.
+   * 
    * @param name name of the folder in destination to be deleted.
    */
   private void printDeleteFolder(File dstFolder, String name)
@@ -251,6 +258,7 @@ public class Iterator
   
   /**
    * Prints info that file was deleted, but only if static variable says so.
+   * 
    * @param name name of the file in destination to be deleted.
    */
   private void printDeleteFile(File dstFolder, String name)
@@ -263,7 +271,8 @@ public class Iterator
   }
   
   /**
-   * Prints info that a folder was created, but only if static variable says so
+   * Prints info that a folder was created, but only if static variable says so.
+   * 
    * @param name name of the folder in destination to be created.
    */
   private void printCreateFolder(File dstFolder, String name)
@@ -277,7 +286,8 @@ public class Iterator
   
   /**
    * Prints info that an image was transformed and created,
-   * but only if static variable says so
+   * but only if static variable says so.
+   * 
    * @param name name of the file in destination to be created.
    */
   private void printCreateFileTransform(File dstFolder, String name)
@@ -291,7 +301,8 @@ public class Iterator
   
   /**
    * Prints info that a file was copied and created,
-   * but only if static variable says so
+   * but only if static variable says so.
+   * 
    * @param name name of the file in destination to be created.
    */
   private void printCreateFileCopy(File dstFolder, String name)
@@ -307,6 +318,7 @@ public class Iterator
    * Removes a date of format "   yyyy-mm-dd hh;mm   " from the front of the 
    * file name.
    * If there is no date, the name is unmodified.
+   * 
    * @param name the name of the file.
    * @return the name of the file without the date.
    */
@@ -327,6 +339,7 @@ public class Iterator
   
   /**
    * Gets the file extension of a file.
+   * 
    * @param file name of the file.
    * @return the extension without dot.
    */
@@ -350,6 +363,7 @@ public class Iterator
   
   /**
    * Removes the file extension of a file.
+   * 
    * @param file name of the file.
    * @return the name without the extension.
    */
@@ -369,6 +383,7 @@ public class Iterator
    * Determines if an extension should be transformed from source to 
    * destination. A transformation is rescale, compress and add date.
    * I.e. image of format jpg, png
+   * 
    * @param ext the extension of the file
    * @return true iff should be resized.
    */
@@ -392,6 +407,7 @@ public class Iterator
   /**
    * Determines if a file should be copied from source to destination.
    * I.e. movie of format m4v, mov, avi, mpeg
+   * 
    * @param ext the extension of the file
    * @return true iff should be copied.
    */
@@ -427,6 +443,7 @@ public class Iterator
   /**
    * Determines if a file should be kept in the destination
    * I.e. image or movie from the above methods.
+   * 
    * @param ext the extension of the file
    * @return true iff should be kept.
    */

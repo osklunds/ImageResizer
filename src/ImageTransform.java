@@ -17,10 +17,14 @@ import com.drew.imaging.jpeg.JpegSegmentMetadataReader;
 import com.drew.metadata.exif.*;
 import com.drew.metadata.iptc.IptcReader;
 
+/**
+  A class representing an image that will be transformed.
+ */
 public class ImageTransform
 {
   /**
    * Returns which width an image should have. Decided by the mode.
+   *
    * @return width.
    */
   private static int imageWidth()
@@ -30,6 +34,7 @@ public class ImageTransform
   
   /**
    * Returns which height an image should have. Decided by the mode.
+   * 
    * @return height.
    */
   private static int imageHeight()
@@ -39,6 +44,7 @@ public class ImageTransform
   
   /**
    * Returns which output quality should be used. Decided by mode.
+   * 
    * @return outputQuality.
    */
   private static double outputQuality()
@@ -68,6 +74,10 @@ public class ImageTransform
     this.dstFolder = dstFolder;
   }
   
+  /**
+   * Creates the destination file. It will be in the destination folder, with the source file
+   * name with the date prepended.
+   */
   public void compute()
   {
     try
@@ -86,6 +96,7 @@ public class ImageTransform
    * Prepends a date of format "   yyyy-mm-dd hh;mm   ".
    * The date is based in the file's exif information.
    * If no exif is available, just the file name is returned.
+   * 
    * @param srcFile file object representing the image.
    * @param name name of the file without extension.
    * @return the new name.

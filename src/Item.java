@@ -4,6 +4,7 @@ import java.io.*;
 /**
  * Class for storing a file object, a file name and an extension.
  * For comparsion, only the file name is considered.
+ * Used by Iterator when listing the files of a folder.
  */
 public class Item
 {
