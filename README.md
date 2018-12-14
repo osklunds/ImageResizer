@@ -17,8 +17,6 @@ The purpose of compressing the images is so that it's faster to view and browse 
 
 This program is used for a real purpose by me. Once a week, a Raspbery Pi runs the program to transform our collection of family photos to the new form. We then view the transformed, not the original, photos on the TV. With the time in the filename, no advanced viewer software is needed to display the photos from different camers in the correct chronological order.
 
-**Note** This program is still in progress.
-
 ## Overview
 
 - **How to use** How to compile and run the program.
@@ -40,6 +38,8 @@ To compile the program, you need to have `ant` installed.
 - `ant` for all the above.
 
 The final program will be in the `build/` directory and have the name `TheProgram.jar`.
+
+If you don't want to compile the program yourself, it's pre-compiled in `misc/TheProgram.jar`.
 
 ### Run
 
