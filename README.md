@@ -57,11 +57,28 @@ The `.jar` file can be moved to any folder.
 
 ## Source code overview
 
-TODO
+Class `Item`: A small class for storing a `File` object, a name and an extension of a file in the source or destination folder. Used in the iteration to see which files already exist.
+
+Class `ImageTransform`: Used for representing an image that will be transformed. Has a source `File` object, a destination name and a destination folder `File` object.
+
+Class `Iterator`: The main class of the program. It has the `main` method to start the program as well as the `compute()` method, which is the core of the program.
+
+Method `compute()`: This is the algorithm for synchronzing the source and destination folder hiearchies. The outline of it follows:
+
+1. Generate a list of the items in the current source folder.
+2. Generate a list of the items in the current destination folder.
+3. Iterate over all items in the destination folder.
+    * If the item is a folder and isn't contained in the source, *delete it*.
+    * If the item is a file and isn't contained in the source, or isn't an image/a video, *delete it*.
+4. Iterate over all items in the source folder.
+    * If the item is a folder, *create it* and *continue recursively*.
+    * If the item is a file, not in the destination folder
+        * If it's an image, create a transformed copy.
+        * If it's a video, copy it.
 
 ## Licenses and attribution
 
-This software uses third party libraries distributed under their own terms, see LICENSES-3RD-PARTY.txt. The third party libraries mentioned above are the following:
+This software uses third party libraries distributed under their own terms, see `LICENSES-3RD-PARTY.txt`. The third party libraries mentioned above are the following:
 
 - Apache Commons IO: https://commons.apache.org/proper/commons-io/index.html
 - metadata-extractor: https://github.com/drewnoakes/metadata-extractor
