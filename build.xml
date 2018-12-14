@@ -1,4 +1,4 @@
-<project default="main">
+<project default="jar">
 
     <path id="classpath">
         <fileset dir="lib" includes="**/*.jar"/>
@@ -13,7 +13,7 @@
         <javac srcdir="src" destdir="build" classpathref="classpath" includeantruntime="false"/>
     </target>
 
-    <target name="jar" depends="compile">
+    <target name="jar" depends="clean, compile">
         <mkdir dir="build"/>
         <jar destfile="build/TheProgram.jar" basedir="build">
             <manifest>
@@ -23,11 +23,5 @@
             <fileset dir="." includes="LICENSES-3RD-PARTY.txt"/>
         </jar>
     </target>
-
-    <target name="run" depends="jar">
-        <java jar="build/TheProgram.jar" fork="true"/>
-    </target>
-
-    <target name="main" depends="clean,run"/>
 
 </project>

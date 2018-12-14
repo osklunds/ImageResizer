@@ -37,7 +37,6 @@ To compile the program, you need to have `ant` installed.
 - `ant clean` for cleaning the build directory.
 - `ant compile` for compiling.
 - `ant jar` for compiling and packaging into a `.jar` file.
-- `ant run ...` for running. See more about the needed arguments in the next section.
 - `ant` for all the above.
 
 The final program will be in the `build/` directory and have the name `TheProgram.jar`.
