@@ -20,6 +20,7 @@
                 <attribute name="Main-Class" value="Iterator"/>
             </manifest>
             <zipgroupfileset dir="lib" includes="commons-io-2.6/commons-io-2.6.jar metadata-extractor-2.9.1/*.jar thumbnailator/*.jar"/>
+            <fileset dir="." includes="LICENSES-3RD-PARTY.txt"/>
         </jar>
     </target>
 

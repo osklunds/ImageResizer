@@ -7,6 +7,7 @@ import org.apache.commons.io.*;
 import java.time.*;
 import net.coobird.thumbnailator.*;
 import net.coobird.thumbnailator.resizers.configurations.*;
+import java.io.Reader.*;
 
 import com.drew.metadata.*;
 import com.drew.imaging.ImageMetadataReader;
@@ -24,6 +25,38 @@ public class Iterator
 {
   public static void main(String[] args)
   {
+    if (args.length == 0)
+    {
+      try
+      {
+        System.out.println("Will now print licenses of 3rd party libraries.");
+        System.out.println("To use the program, specify the arguments as follows.");
+        System.out.println("1: Source path");
+        System.out.println("2: Destination path");
+        System.out.println("3: 1 iff should print create/delete messages, else 0");
+        System.out.println("4: 1 iff should print entry/exit messages, else 0");
+        System.out.println("5: M iff mobile, T iff TV");
+
+        BufferedReader txtReader = new BufferedReader(new InputStreamReader(Iterator.class.getResourceAsStream("LICENSES-3RD-PARTY.txt")));
+        
+        String line = txtReader.readLine();
+        while (line != null)
+        {
+          System.out.println(line);
+          line = txtReader.readLine();
+        }
+        txtReader.close();
+
+        return;
+      }
+      catch (Exception e)
+      {
+        System.out.println("Error loading license text file");
+        System.out.println(e);
+        return;
+      }
+    }
+
     if (args.length != 5)
     {
       System.out.println("Wrong number of arguments.");
@@ -34,6 +67,9 @@ public class Iterator
       System.out.println("5: M iff mobile, T iff TV");
       return;
     }
+
+    System.out.println("Run the program without arguments to view licenses of 3rd party libraries.");
+    System.out.println("");
     
     String src = args[0];
     String dst = args[1];
@@ -76,7 +112,7 @@ public class Iterator
     catch (Exception e)
     {
       System.out.println("Argument error");
-      System.exit(0);
+      return;
     }
     
     // The iterator object that will be used
