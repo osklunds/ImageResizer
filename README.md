@@ -39,7 +39,7 @@ To compile the program, you need to have `ant` installed.
 
 The final program will be in the `build/` directory and have the name `TheProgram.jar`.
 
-If you don't want to compile the program yourself, it's pre-compiled in `misc/TheProgram.jar`.
+If you don't want to compile the program yourself, a [pre-compiled jar is available for download](https://github.com/osklunds/ImageResizer/raw/master/misc/TheProgram.jar) in `misc/TheProgram.jar`.
 
 ### Run
 
