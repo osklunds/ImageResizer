@@ -15,7 +15,7 @@ The purpose of having the date/time prepended is to be able to sort images, from
 
 The purpose of compressing the images is so that it's faster to view and browse them over a network connection. On the internet as well as LANs.
 
-This program is used for a real purpose by me. Once a week, a Raspbery Pi runs the program to transform our collection of family photos to the new form. We then view the transformed, not the original, photos on the TV. With the time in the filename, no advanced viewer software is needed to display the photos from different camers in the correct chronological order.
+This program has a real use case for me. Once a week, a Raspbery Pi runs the program to transform our collection of family photos to the new form. We then view the transformed, not the original, photos on the TV. Compared to viewing the original phots, we now get them in the correct order and faster loading times.
 
 ## Overview
 
