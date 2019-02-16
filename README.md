@@ -86,7 +86,7 @@ This software uses third party libraries distributed under their own terms, see 
 
 A big THANK YOU to them! Without their software, I couldn't have made this program. 
 
-The binary forms of them are in the `lib/` folder. The files, as they are here, has not been modified at all, with one exception: for Apache Commons IO, I have put the original `docs/` folder into a corresponding `docs.zip` file.
+The binary forms of them are in the `lib/` folder. The files, as they are here, have not been modified at all, with one exception: for Apache Commons IO, I have put the original `docs/` folder into a corresponding `docs.zip` file.
 
 ## The "name" ImageResizer
 
