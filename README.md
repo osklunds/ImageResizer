@@ -1,6 +1,8 @@
 
 # ImageResizer
 
+**I've made an [improved version of this project in Rust](https://github.com/osklunds/ImageMapper). This Java version is therefore not updated any more.**
+
 This is a Java tool for mapping/synchronizing a folder hierarchy into a new folder hierarchy with the following properties:
 - Only images and videos are kept
 - The exif date/time of images are prepended to their filename
