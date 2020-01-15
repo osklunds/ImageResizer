@@ -45,6 +45,8 @@ If you don't want to compile the program yourself, a [pre-compiled jar is availa
 
 ### Run
 
+**Be careful with the paths, since files in `dst` can be removed!**
+
 The program is invoked as `java -jar TheProgram.jar src dst m1 m2 q` where
 
 - `src` is the path to the source folder of images.
